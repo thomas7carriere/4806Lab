@@ -1,0 +1,9 @@
+package Application.persistence;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+@RepositoryRestResource(collectionResourceRel = "buddies", path = "buds")
+public interface BuddyInfoRepository extends CrudRepository<BuddyInfo, Long> {
+
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lab 4: Spring MVC Address Book</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Result</h1>
+
+<p th:text="'AddressBook ID: ' + ${addressBook.id}" ></p>
+<p th:each="buddy : ${addressBook.buddies}">
+    id: <b><span th:text="${buddy.id}"/></b>
+    Name: <b><span th:text="${buddy.name}"/></b>
+    Phone Number: <b><span th:text="${buddy.phone}"/></b>
+</p>
+<a href="/greeting">Some more text</a>
+</body>
+</html>
