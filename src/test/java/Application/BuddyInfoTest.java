@@ -1,3 +1,5 @@
+package Application;
+
 import Application.persistence.BuddyInfo;
 import org.junit.Before;
 import org.junit.Test;

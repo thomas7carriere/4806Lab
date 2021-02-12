@@ -1,3 +1,5 @@
+package Application;
+
 import Application.persistence.AddressBook;
 import Application.persistence.BuddyInfo;
 import org.junit.Before;
