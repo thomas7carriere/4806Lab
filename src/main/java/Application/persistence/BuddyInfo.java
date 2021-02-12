@@ -13,14 +13,24 @@ public class BuddyInfo {
 
     private String name;
     private String phone;
+    private String address;
 
     public BuddyInfo(){
 
     }
 
-    public BuddyInfo(String name, String phone){
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public BuddyInfo(String name, String phone, String address){
         this.name = name;
         this.phone = phone;
+        this.address = address;
     }
 
     public Long getId(){

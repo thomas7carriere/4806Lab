@@ -12,7 +12,7 @@ public class BuddyInfoTest {
 
     @Before
     public void setupTest(){
-        testBud = new BuddyInfo("testName", "testPhone");
+        testBud = new BuddyInfo("testName", "testPhone", "testAddress");
     }
 
     @Test
@@ -24,7 +24,13 @@ public class BuddyInfoTest {
     @Test
     public void getPhone() {
         String phone = testBud.getPhone();
-        assertEquals("testPhone",phone);
+        assertEquals("testPhone", phone);
+    }
+
+    @Test
+    public void getAddress(){
+        String address = testBud.getAddress();
+        assertEquals("testAddress", address);
     }
 
     @Test
@@ -40,4 +46,12 @@ public class BuddyInfoTest {
         String testPhone = testBud.getPhone();
         assertEquals("testPhone1",testPhone);
     }
+
+    @Test
+    public void setAddress() {
+        testBud.setAddress("testAddress1");
+        String testAddress = testBud.getAddress();
+        assertEquals("testAddress1", testAddress);
+    }
+
 }

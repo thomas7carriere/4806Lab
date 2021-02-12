@@ -18,7 +18,7 @@ public class AddressBookTest {
 
     @Test
     public void addBuddy() {
-        BuddyInfo testBud = new BuddyInfo("Babak1", "6131234");
+        BuddyInfo testBud = new BuddyInfo("Babak1", "6131234", "CarletonSt");
         addressBookTest.addBuddy(testBud);
         assertEquals(1,addressBookTest.getBuddies().size());
     }

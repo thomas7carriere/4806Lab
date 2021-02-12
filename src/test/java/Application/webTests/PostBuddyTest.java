@@ -1,4 +1,4 @@
-package Application;
+package Application.webTests;
 
 import Application.persistence.*;
 
@@ -14,7 +14,7 @@ import org.springframework.http.HttpEntity;
 
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-public class BasicWebTest {
+public class PostBuddyTest {
 
     @LocalServerPort
     private int port;
@@ -24,9 +24,10 @@ public class BasicWebTest {
 
     @Test
     public void shouldReturnABuddy() throws Exception {
-        HttpEntity<BuddyInfo> request = new HttpEntity<>(new BuddyInfo("Tom", "613"));
+        HttpEntity<BuddyInfo> request = new HttpEntity<>(new BuddyInfo("Tom", "613", "Woodside"));
         BuddyInfo bud = restTemplate.postForObject("http://localhost:" + port + "/buddies", request, BuddyInfo.class);
         assertEquals("Tom", bud.getName());
         assertEquals("613", bud.getPhone());
+        assertEquals("Woodside", bud.getAddress());
     }
 }
