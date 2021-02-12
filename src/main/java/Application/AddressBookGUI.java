@@ -22,6 +22,7 @@ public class AddressBookGUI {
     //this will show a nice view of the Book with "contents.html"
     @GetMapping("/addressbook/{bookId}")
     public String greetingForm(@PathVariable String bookId, Model model) {
+        BuddyInfo bud = new BuddyInfo();
         AddressBook book = repoBook.findById(Long.parseLong(bookId));
         //might want this to return an "error template"? if something goes wrong,
         //rather than just making a book
@@ -30,21 +31,22 @@ public class AddressBookGUI {
         }
         repoBook.save(book);
         model.addAttribute("addressBook", book);
+        model.addAttribute("buddyInfo", bud);
         return "contents";
     }
 
     //Post mapping for adding a buddy to an addressbook
     @PostMapping("/addressbook/{bookId}")
-    public String addBuddy(@PathVariable String bookId, @RequestParam String name, @RequestParam String phone, Model model) {
+    public String addBuddy(@PathVariable String bookId, @ModelAttribute BuddyInfo bud, Model model) {
         AddressBook book = repoBook.findById(Long.parseLong(bookId));
         //might want this to return an "error template"? if something goes wrong,
         //rather than just making a book
         if(book == null){
             book = new AddressBook();
         }
-        BuddyInfo bud = new BuddyInfo(name,phone);
         book.addBuddy(bud);
         repoBook.save(book);
+        model.addAttribute(book);
         return "contents";
     }
 

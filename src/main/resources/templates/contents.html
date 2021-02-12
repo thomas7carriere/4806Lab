@@ -13,6 +13,13 @@
     Name: <b><span th:text="${buddy.name}"/></b>
     Phone Number: <b><span th:text="${buddy.phone}"/></b>
 </p>
-<a href="/greeting">Some more text</a>
+<!--  -->
+
+<h1>Add Buddy</h1>
+<form action="#" th:action="@{/addressbook/{bookId}(bookId=${addressBook.id})}" th:object="${buddyInfo}" method="post">
+    <p>Name: <input type="text" th:field="*{name}" /></p>
+    <p>Phone: <input type="text" th:field="*{phone}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
 </body>
 </html>
