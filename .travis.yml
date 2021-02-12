@@ -4,3 +4,4 @@ deploy:
   provider: heroku
   api-key: $HEROKU_API_KEY
   app: lab4806thomas
+dist: trusty
