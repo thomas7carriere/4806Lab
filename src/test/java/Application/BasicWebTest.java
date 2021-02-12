@@ -27,5 +27,6 @@ public class BasicWebTest {
         HttpEntity<BuddyInfo> request = new HttpEntity<>(new BuddyInfo("Tom", "613"));
         BuddyInfo bud = restTemplate.postForObject("http://localhost:" + port + "/buddies", request, BuddyInfo.class);
         assertEquals("Tom", bud.getName());
+        assertEquals("613", bud.getPhone());
     }
 }

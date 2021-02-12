@@ -35,7 +35,6 @@ public class AddressBookGUI {
 
     //Post mapping for adding a buddy to an addressbook
     @PostMapping("/addressbook/{bookId}")
-    @ResponseBody
     public String addBuddy(@PathVariable String bookId, @RequestParam String name, @RequestParam String phone, Model model) {
         AddressBook book = repoBook.findById(Long.parseLong(bookId));
         //might want this to return an "error template"? if something goes wrong,
@@ -46,7 +45,7 @@ public class AddressBookGUI {
         BuddyInfo bud = new BuddyInfo(name,phone);
         book.addBuddy(bud);
         repoBook.save(book);
-        return "bud";
+        return "contents";
     }
 
 
