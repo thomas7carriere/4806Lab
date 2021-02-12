@@ -1,4 +1,4 @@
-package Application.WebTesting;
+package Application;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

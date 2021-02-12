@@ -1,4 +1,4 @@
-package Application.WebTesting;
+package Application;
 
 import Application.persistence.*;
 
