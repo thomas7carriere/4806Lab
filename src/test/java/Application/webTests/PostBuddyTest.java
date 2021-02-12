@@ -13,7 +13,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpEntity;
 
 
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes = {Application.TestingRestfulApp.class})
 public class PostBuddyTest {
 
     @LocalServerPort

@@ -16,7 +16,6 @@ public class AddressBook {
     private List<BuddyInfo> buddies = new ArrayList<BuddyInfo>();
 
     public AddressBook(){
-        //buddies = new ArrayList<BuddyInfo>();
     }
 
     public Long getId(){
