@@ -9,20 +9,20 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 
-public class AddressBookGUI {
+public class AddressBookOldController {
     private AddressBookRepository repoBook;
     private BuddyInfoRepository repoBud;
 
     @Autowired
-    public AddressBookGUI(AddressBookRepository repoBook, BuddyInfoRepository repoBud) {
+    public AddressBookOldController(AddressBookRepository repoBook, BuddyInfoRepository repoBud) {
         this.repoBud = repoBud;
         this.repoBook = repoBook;
     }
 
     //this will show a nice view of the Book with "contents.html"
-    @GetMapping("/addressbook/{bookId}")
-    public String greetingForm(@PathVariable String bookId, Model model) {
-        BuddyInfo bud = new BuddyInfo();
+    @GetMapping("/addressbookold/{bookId}")
+    public String addressBookContents(@PathVariable String bookId, Model model) {
+
         AddressBook book = repoBook.findById(Long.parseLong(bookId));
         //might want this to return an "error template"? if something goes wrong,
         //rather than just making a book
@@ -30,13 +30,15 @@ public class AddressBookGUI {
             book = new AddressBook();
         }
         repoBook.save(book);
+
         model.addAttribute("addressBook", book);
+        BuddyInfo bud = new BuddyInfo();
         model.addAttribute("buddyInfo", bud);
         return "contents";
     }
 
-    //Post mapping for adding a buddy to an addressbook
-    @PostMapping("/addressbook/{bookId}")
+    //This could be RESTful
+    @PostMapping("/addressbookold/{bookId}")
     public String addBuddy(@PathVariable String bookId, @ModelAttribute BuddyInfo bud, Model model) {
         AddressBook book = repoBook.findById(Long.parseLong(bookId));
         //might want this to return an "error template"? if something goes wrong,

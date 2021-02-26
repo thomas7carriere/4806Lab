@@ -1,15 +1,15 @@
 package Application.persistence;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class BuddyInfo {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne
+    private AddressBook addressBook;
 
     private String name;
     private String phone;
@@ -37,16 +37,18 @@ public class BuddyInfo {
         return this.id;
     }
 
-    public void setId(Long id){
-        this.id = id;
-    }
-
     public String getName(){
         return this.name;
     }
 
     public String getPhone(){
         return this.phone;
+    }
+
+    public AddressBook getAddressBook() {return this.addressBook;}
+
+    public void setId(Long id){
+        this.id = id;
     }
 
     public void setName(String name){
@@ -56,6 +58,10 @@ public class BuddyInfo {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public void setAddressBook(AddressBook addressBook) {this.addressBook = addressBook;}
+
+
 
     @Override
     public String toString(){

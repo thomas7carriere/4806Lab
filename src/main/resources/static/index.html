@@ -1,14 +1,47 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>This text is shown when highlighting a tab or at the top of a browser</title>
+    <title>Addressbook Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="icon" href="data:;base64,=">
+    <style>
+        table, th, td {
+            border: 1px solid black;}
+    </style>
+
+
 </head>
 <body>
-<form action="/addressbook" method="post">
-    <button type="submit" name="your_name" value="your_value" class="btn-link">Go</button>
+
+<p>Click to create an address book(Old way) <a href="/addressbookold/1">here</a></p>
+
+<button onclick="createAddressBook()" >Create a new Book</button><br>
+
+<form id="buddyForm">
+    <h2>Fill in BuddyInfo here</h2>
+    <label for="bookId">Book Id:</label><br>
+    <input type="text" id="bookId" name="bookId" value=""><br>
+    <label for="buddyName">Buddy Name:</label><br>
+    <input type="text" id="buddyName" name="buddyName" value=""><br>
+    <label for="buddyPhone">Buddy Phone:</label><br>
+    <input type="text" id="buddyPhone" name="buddyPhone" value=""><br>
+    <label for="buddyAddress">Buddy Address:</label><br>
+    <input type="text" id="buddyAddress" name="buddyAddress" value=""><br>
 </form>
 
-<p>Click to create an address book <a href="/addressbook/1">here</a></p>
+<br><button onclick="addBuddyInfo()">Add a new Buddy to the specified Book</button><br>
+<button onclick="getBooksBuddies()">List all the Buddies of the specified Book</button><br><br>
+<table id="buddyTable">
+    <thead>
+        <th> Name</th>
+        <th> Phone</th>
+        <th> Address</th>
+    </thead>
+    <tbody id="tbodyid"></tbody>
+</table>
+
+<script type="text/javascript" src="/scripts/addressBookScript.js"></script>
+
 </body>
 </html>

@@ -17,7 +17,7 @@
 <!--  -->
 
 <h1>Add Buddy</h1>
-<form action="#" th:action="@{/addressbook/{bookId}(bookId=${addressBook.id})}" th:object="${buddyInfo}" method="post">
+<form action="#" th:action="@{/addressbookold/{bookId}(bookId=${addressBook.id})}" th:object="${buddyInfo}" method="post">
     <p>Name: <input type="text" th:field="*{name}" /></p>
     <p>Phone: <input type="text" th:field="*{phone}" /></p>
     <p>Address: <input type="text" th:field="*{address}" /></p>
