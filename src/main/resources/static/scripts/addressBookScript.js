@@ -32,7 +32,7 @@ function addBuddyInfo(){
     $.ajax({
         url: "http://localhost:8080/addressbook",
         type: 'POST',
-        contentType: 'application/json', //seems to cause an error. Don't think my JSON is getting wrapped in double quotes
+        //contentType: 'application/json', //seems to cause an error. Don't think my JSON is getting wrapped in double quotes
         data: ($('#buddyForm').serializeArray()),
         dataType: 'json'
     }).then(data => displayBuddies(data.buddies));
