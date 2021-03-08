@@ -1,3 +1,4 @@
+//Send a GET to addressBooks repo endpoint
 function getBooksBuddies() {
     $.ajax({
         url: "http://localhost:8080/addressBooks/" + $("#bookId").val()})
@@ -9,7 +10,7 @@ function getBooksBuddies() {
                     displayBuddies(buds);
                 });
         });
-};
+}
 
 //creates an addressBook by sending a POST request to the AddressBook crudrepo endpoint
 function createAddressBook() {
@@ -30,10 +31,10 @@ function createAddressBook() {
 //creates and adds a buddy to an AddressBook, which is specified by its ID
 function addBuddyInfo(){
     $.ajax({
-        url: "http://localhost:8080/addressbook",
+        url: "/addressbook/" + $('#bookId').val(),
         type: 'POST',
-        //contentType: 'application/json', //seems to cause an error. Don't think my JSON is getting wrapped in double quotes
-        data: ($('#buddyForm').serializeArray()),
+        contentType: 'application/json',
+        data: JSON.stringify(objectifyForm($('#buddyForm').serializeArray())),
         dataType: 'json'
     }).then(data => displayBuddies(data.buddies));
 }
@@ -47,13 +48,33 @@ function displayBuddies(buddies){
         ));
 }
 // JSON.stringify(getFormData($('#buddyForm').serializeArray())),
-function getFormData(data) {
-    var unindexed_array = data;
-    var indexed_array = {};
-
-    $.map(unindexed_array, function(n, i) {
-        indexed_array[n['name']] = n['value'];
-    });
-
-    return indexed_array;
+function objectifyForm(formArray) {
+    //serialize data function
+    var returnArray = {};
+    for (var i = 0; i < formArray.length; i++){
+        returnArray[formArray[i]['name']] = formArray[i]['value'];
+    }
+    return returnArray;
 }
+
+function testMethod(){
+    console.log(JSON.stringify(objectifyForm($('#buddyForm').serializeArray())));
+}
+
+//testing out filtering table rows
+function filterName(){
+    if ($('#radioName').is(':checked')) {
+        $('#buddyTable').hide();
+        console.log("button is chcked");
+    } else {
+        $('#buddyTable').show();
+        console.log("button is unchcked");
+    }
+}
+
+function setup() {
+    $('#radioName').change(filterName);
+    $('#buddyTable > td').hide();
+}
+
+$(document).ready(setup);

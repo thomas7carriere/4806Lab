@@ -3,45 +3,61 @@
 <head>
     <title>Addressbook Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <script type ="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/scripts/addressBookScript.js"></script>
     <link rel="icon" href="data:;base64,=">
     <style>
         table, th, td {
             border: 1px solid black;}
     </style>
-
-
 </head>
+
 <body>
 
 <p>Click to create an address book(Old way) <a href="/addressbookold/1">here</a></p>
 
 <button onclick="createAddressBook()" >Create a new Book</button><br>
 
+<label for="bookId">Book Id:</label><br>
+<input type="text" id="bookId" name="bookId" value=""><br>
+
 <form id="buddyForm">
     <h2>Fill in BuddyInfo here</h2>
-    <label for="bookId">Book Id:</label><br>
-    <input type="text" id="bookId" name="bookId" value=""><br>
     <label for="buddyName">Buddy Name:</label><br>
-    <input type="text" id="buddyName" name="buddyName" value=""><br>
+    <input type="text" id="buddyName" name="name" value=""><br>
     <label for="buddyPhone">Buddy Phone:</label><br>
-    <input type="text" id="buddyPhone" name="buddyPhone" value=""><br>
+    <input type="text" id="buddyPhone" name="phone" value=""><br>
     <label for="buddyAddress">Buddy Address:</label><br>
-    <input type="text" id="buddyAddress" name="buddyAddress" value=""><br>
+    <input type="text" id="buddyAddress" name="address" value=""><br>
 </form>
 
 <br><button onclick="addBuddyInfo()">Add a new Buddy to the specified Book</button><br>
 <button onclick="getBooksBuddies()">List all the Buddies of the specified Book</button><br><br>
+<button onclick="testMethod()">Press here to test</button>
+
+<input type="radio" id="radioName"><label>
+    Hide Address
+</label>
+
 <table id="buddyTable">
     <thead>
-        <th> Name</th>
+        <th> Name </th>
         <th> Phone</th>
         <th> Address</th>
     </thead>
-    <tbody id="tbodyid"></tbody>
+    <tbody id="tbodyid">
+    </tbody>
 </table>
 
-<script type="text/javascript" src="/scripts/addressBookScript.js"></script>
+<form id="questionForm">
+    <label for="question">Question:</label><br>
+    <input type="text" id="question" name="question" value=""><br>
+    <label for="questionName">QuesitonName:</label><br>
+    <input type="text" id="questionName" name="questionName" value=""><br>
+    <label for="questionNumber">QuestionNumber:</label><br>
+    <input type="text" id="questionNumber" name="questionNumber" value=""><br>
+</form>
 
 </body>
 </html>

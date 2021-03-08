@@ -8,6 +8,7 @@ public class BuddyInfo {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
+    //private Long bookId;
     @ManyToOne
     private AddressBook addressBook;
 
@@ -37,23 +38,15 @@ public class BuddyInfo {
         return this.id;
     }
 
-    public String getName(){
-        return this.name;
-    }
+    public String getName(){ return this.name; }
 
-    public String getPhone(){
-        return this.phone;
-    }
+    public String getPhone(){ return this.phone; }
 
     public AddressBook getAddressBook() {return this.addressBook;}
 
-    public void setId(Long id){
-        this.id = id;
-    }
+    public void setId(Long id){ this.id = id; }
 
-    public void setName(String name){
-        this.name = name;
-    }
+    public void setName(String name){ this.name = name; }
 
     public void setPhone(String phone) {
         this.phone = phone;
@@ -61,9 +54,7 @@ public class BuddyInfo {
 
     public void setAddressBook(AddressBook addressBook) {this.addressBook = addressBook;}
 
-
-
-    @Override
+     @Override
     public String toString(){
         return "Name: " + this.name + "\nPhone: " + this.phone;
     }

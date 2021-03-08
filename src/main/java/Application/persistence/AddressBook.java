@@ -10,10 +10,8 @@ public class AddressBook {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-
-    //curious about fetch type eager
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<BuddyInfo> buddies = new ArrayList<BuddyInfo>();
+    private List<BuddyInfo> buddies;
 
     public AddressBook(){
     }
